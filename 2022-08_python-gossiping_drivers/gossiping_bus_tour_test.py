@@ -29,3 +29,12 @@ def test_2_routes_never():
     ]
     gossiping_done = gossiping_bus_tour(routes)
     assert(gossiping_done == "never")
+
+
+def test_2_routes_second_stop():
+    routes = [
+        [1, 3],
+        [2, 3],
+    ]
+    gossiping_done = gossiping_bus_tour(routes)
+    assert(gossiping_done == "2")
