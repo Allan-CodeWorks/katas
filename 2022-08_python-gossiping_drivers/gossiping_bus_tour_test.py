@@ -55,4 +55,4 @@ def test_2_routes_stop_4():
         [2, 1, 3, 4],
     ]
     gossiping_done = gossiping_bus_tour(routes)
-    assert(gossiping_done == "3")
+    assert(gossiping_done == "4")
