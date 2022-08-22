@@ -47,3 +47,12 @@ def test_2_routes_stop_3():
     ]
     gossiping_done = gossiping_bus_tour(routes)
     assert(gossiping_done == "3")
+
+
+def test_2_routes_stop_3_uneven():
+    routes = [
+        [3, 2],
+        [2, 1, 3]
+    ]
+    gossiping_done = gossiping_bus_tour(routes)
+    assert(gossiping_done == "3")
