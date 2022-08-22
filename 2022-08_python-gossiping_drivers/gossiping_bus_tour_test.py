@@ -1,3 +1,6 @@
+from gossiping_bus_tour import gossiping_bus_tour
+
+
 def test_dummy():
     assert(3 == 3)
 

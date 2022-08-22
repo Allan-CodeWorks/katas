@@ -1,2 +1,2 @@
-def gossiping_ghost_tour():
-    return
+def gossiping_bus_tour(drivers_schedule):
+    return "never"
