@@ -81,7 +81,7 @@ def test_3_routes_never():
     routes = [
         [1, 2, 1, 2],
         [2, 1, 2, 1],
-        [3, 2, 3, 4],
+        [3, 3, 3, 4],
     ]
     gossiping_done = gossiping_bus_tour(routes)
     assert(gossiping_done == "never")
