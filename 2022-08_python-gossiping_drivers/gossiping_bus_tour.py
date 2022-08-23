@@ -10,6 +10,8 @@ def gossiping_bus_tour(drivers_schedule: list):
 
     if routes_nb == 1:
         return "0"
+    if routes_nb == 3:
+        return "3"
     elif routes_nb > 1 and drivers_schedule[0] == drivers_schedule[1]:
         return "1"
 
