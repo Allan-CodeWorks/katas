@@ -1,3 +1,7 @@
+def is_all_drivers_at_same_stop(locations: tuple):
+    if len(set(locations)) == 1:
+        return True
+    return False
 
 
 def gossiping_bus_tour(drivers_schedule: list):
@@ -12,7 +16,7 @@ def gossiping_bus_tour(drivers_schedule: list):
     drivers_locations_list = list(zip(*drivers_schedule))
 
     for i, locs in enumerate(drivers_locations_list):
-        if len(set(locs)) == 1:
+        if is_all_drivers_at_same_stop(locs):
             return str(i + 1)
 
     return "never"
