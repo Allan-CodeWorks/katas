@@ -17,15 +17,25 @@ def is_drivers_never_cross(schedule):
     return True
 
 
-def gossiping_bus_tour(drivers_schedule: list):
-    drivers_nb = len(drivers_schedule)
+def solved(drivers_nb, gossips):
+    for gossip in gossips:
+        if len(gossip) < drivers_nb:
+            return False
+    return True
 
-    if drivers_nb == 1:
+
+def gossiping_bus_tour(schedule: list):
+    drivers_nb = len(schedule)
+    gossips = [set([i]) for i in range(drivers_nb)]
+
+    if solved(drivers_nb, gossips):
         return "0"
 
-    stops_at_minute = list(zip(*drivers_schedule))
+    stops_at_minute = list(zip(*schedule))
 
     for minute, locs in enumerate(stops_at_minute):
+        if solved(drivers_nb, gossips):
+            return minute + 1
         if is_all_drivers_at_same_stop(locs):
             return str(minute + 1)
     if is_drivers_never_cross(stops_at_minute):
