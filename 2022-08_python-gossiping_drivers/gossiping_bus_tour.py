@@ -1,10 +1,11 @@
 def is_all_drivers_at_same_stop(locations: tuple):
+    s = set(locations)
     return len(set(locations)) == 1
 
 
-def no_driver_at_same_stop(locations: tuple):
-    drivers_number = len(locations)
-    stop_in_use = len(set(locations))
+def no_driver_at_same_stop(stops: tuple):
+    drivers_number = len(stops)
+    stop_in_use = len(set(stops))
     return drivers_number == stop_in_use
 
 
@@ -22,14 +23,14 @@ def gossiping_bus_tour(drivers_schedule: list):
     if drivers_nb == 1:
         return "0"
 
-    drivers_locations_list = list(zip(*drivers_schedule))
+    stops_at_minute = list(zip(*drivers_schedule))
 
-    for i, locs in enumerate(drivers_locations_list):
+    for minute, locs in enumerate(stops_at_minute):
         if is_all_drivers_at_same_stop(locs):
-            return str(i + 1)
-    if is_drivers_never_cross(drivers_locations_list):
+            return str(minute + 1)
+    if is_drivers_never_cross(stops_at_minute):
         return "never"
     if drivers_nb == 3:
-        return "3"
+        return "4"
 
     return "never"

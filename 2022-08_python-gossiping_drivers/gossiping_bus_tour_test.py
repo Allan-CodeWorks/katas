@@ -69,15 +69,15 @@ def test_2_routes_stop_1_uneven():
 
 def test_3_routes_stop_3():
     routes = [
-        [1, 2, 1, 2],
+        [1, 2, 1, 1],
         [2, 1, 3, 1],
         [3, 2, 3, 4],
     ]
     gossiping_done = gossiping_bus_tour(routes)
-    assert(gossiping_done == "3")
+    assert(gossiping_done == "4")
 
 
-def test_3_routes_never():
+def test_3_routes_never_cross():
     routes = [
         [1, 2, 1, 2],
         [2, 1, 2, 1],
