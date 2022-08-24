@@ -19,29 +19,7 @@ def gossiping_bus_tour(schedule: list):
         if solved(drivers_nb, gossips):
             return str(minute + 1)
 
-    if is_drivers_never_cross(stops_at_minute):
-        return "never"
-
     return "never"
-
-
-def is_all_drivers_at_same_stop(locations: tuple):
-    s = set(locations)
-    return len(set(locations)) == 1
-
-
-def no_driver_at_same_stop(stops: tuple):
-    drivers_number = len(stops)
-    stop_in_use = len(set(stops))
-    return drivers_number == stop_in_use
-
-
-def is_drivers_never_cross(schedule):
-    not_crossing_at_each_steps = [
-        no_driver_at_same_stop(locs) for locs in schedule]
-    if False in not_crossing_at_each_steps:
-        return False
-    return True
 
 
 def solved(drivers_nb, gossips):
