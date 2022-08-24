@@ -13,8 +13,7 @@ def gossiping_bus_tour(schedule: list):
 
         for drivers in drivers_at_stop.values():
             if len(drivers) > 1:
-                for driver in drivers:
-                    gossips[driver] = gossips[driver].union(drivers)
+                [gossips[driver].update(drivers) for driver in drivers]
 
         if solved(drivers_nb, gossips):
             return str(minute + 1)
