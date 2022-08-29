@@ -23,3 +23,7 @@ def test_simple_division_2():
 
 def test_simple_division_30():
     assert(rpn("30 3 /") == 10)
+
+
+def test_simple_addition_20():
+    assert(rpn("15 5 +") == 20)
