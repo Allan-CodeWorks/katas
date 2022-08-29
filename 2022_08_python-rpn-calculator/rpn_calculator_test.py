@@ -1,3 +1,4 @@
+import pytest
 from rpn_calculator import rpn
 
 
@@ -19,6 +20,11 @@ def test_simple_division():
 
 def test_simple_division_2():
     assert(rpn("25 5 /") == 5)
+
+
+def test_bad_operator():
+    with pytest.raises(ValueError):
+        rpn("1 2 &")
 
 
 def test_simple_division_30():
