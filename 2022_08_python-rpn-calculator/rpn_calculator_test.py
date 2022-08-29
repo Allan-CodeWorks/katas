@@ -31,3 +31,7 @@ def test_simple_addition_20():
 
 def test_simple_addition_13450():
     assert(rpn("11450 2000 +") == 13450)
+
+
+def test_simple_addition_13450():
+    assert(rpn("0 2000 +") == 2000)
