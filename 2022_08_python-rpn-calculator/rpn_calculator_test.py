@@ -27,3 +27,7 @@ def test_simple_division_30():
 
 def test_simple_addition_20():
     assert(rpn("15 5 +") == 20)
+
+
+def test_simple_addition_13450():
+    assert(rpn("11450 2000 +") == 13450)
