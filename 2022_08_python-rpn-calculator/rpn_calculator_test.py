@@ -57,3 +57,7 @@ def test_simple_substraction_15():
 
 def test_simple_multiplication_45():
     assert(rpn("3 15 *") == 45)
+
+
+def test_simple_multiplication_81_neg():
+    assert(rpn("-9 9 *") == -81)
