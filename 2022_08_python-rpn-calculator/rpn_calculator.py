@@ -15,16 +15,21 @@ def rpn(expression: str):
         current_expression_index = find_first_full_sequence(members)
         current_result = rpn(
             str.join(" ", members[current_expression_index: current_expression_index + 3]))
-        expression = f'{members[0:current_expression_index]} {current_result} {expression[:current_expression_index + 3]}'
-        members = [member for i, member in enumerate(
-            members) if i != current_expression_index and i != current_expression_index + 1 and i != current_expression_index + 2]
-        members.insert(current_expression_index, str(current_result))
+        members = replace_calcul_by_result(
+            current_expression_index, current_result, members)
 
     if isRpnFullSequence(members):
         e1, e2, op = members
         return calculator(int(e1), int(e2), op)
     else:
         raise ValueError(expression)
+
+
+def replace_calcul_by_result(current_expression_index, current_result, members):
+    members = [member for i, member in enumerate(
+        members) if i != current_expression_index and i != current_expression_index + 1 and i != current_expression_index + 2]
+    members.insert(current_expression_index, str(current_result))
+    return members
 
 
 def find_first_full_sequence(members):
