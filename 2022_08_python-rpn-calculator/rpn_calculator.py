@@ -6,12 +6,13 @@ from tokenize import Number
 
 
 def rpn(expression: str):
+
     if expression.isdigit():
         return int(expression)
     elif isRpnSequence(expression):
         e1, e2, op = expression.split(" ")
         return calculator(int(e1), int(e2), op)
-    raise(InvalidOperation)
+    raise InvalidOperation(expression)
 
 
 def calculator(e1: int, e2: int, op: str):
@@ -19,11 +20,13 @@ def calculator(e1: int, e2: int, op: str):
         return e1 + e2
     if op == "/":
         return e1 / e2
+    if op == "-":
+        return e1 - e2
     return 0
 
 
 def isRpnOperator(operator: str):
-    operators = ["+", "/"]
+    operators = ["+", "/", "-"]
     containsRpnOperator = [op for op in operators if (op in operator)]
     return len(containsRpnOperator) > 0
 

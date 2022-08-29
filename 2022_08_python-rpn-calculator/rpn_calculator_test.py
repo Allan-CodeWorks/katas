@@ -39,3 +39,11 @@ def test_simple_addition_13450():
 
 def test_simple_substraction_12():
     assert(rpn("15 3 -") == 12)
+
+
+def test_simple_substraction_1234_neg():
+    assert(rpn("15 1249 -") == -1234)
+
+
+def test_simple_substraction_15():
+    assert(rpn("15 0 -") == 15)
