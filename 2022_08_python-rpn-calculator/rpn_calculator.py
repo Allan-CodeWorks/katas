@@ -9,7 +9,7 @@ def rpn(expression: str):
 
     if expression.isdigit():
         return int(expression)
-    elif isRpnSequence(expression):
+    elif isRpnFullSequence(expression):
         e1, e2, op = expression.split(" ")
         return calculator(int(e1), int(e2), op)
     if "+" in expression and "-" in expression:
@@ -35,7 +35,7 @@ def isRpnOperator(operator: str):
     return len(containsRpnOperator) > 0
 
 
-def isRpnSequence(expression: str):
+def isRpnFullSequence(expression: str):
     members = expression.split(" ")
     if len(members) > 3:
         return False
