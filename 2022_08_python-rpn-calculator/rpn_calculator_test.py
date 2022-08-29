@@ -61,3 +61,7 @@ def test_simple_multiplication_45():
 
 def test_simple_multiplication_81_neg():
     assert(rpn("-9 9 *") == -81)
+
+
+def test_simple_multiplication_63_neg_double():
+    assert(rpn("-9 -7 *") == 63)
