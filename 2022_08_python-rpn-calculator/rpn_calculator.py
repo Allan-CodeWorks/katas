@@ -12,12 +12,6 @@ def rpn(expression: str):
     elif isRpnSequence(expression):
         e1, e2, op = expression.split(" ")
         return calculator(int(e1), int(e2), op)
-    elif "*" in expression:
-        if "-7" in expression:
-            return 63
-        if "-9" in expression:
-            return -81
-        return 45
     raise ValueError(expression)
 
 
@@ -28,11 +22,13 @@ def calculator(e1: int, e2: int, op: str):
         return e1 / e2
     if op == "-":
         return e1 - e2
+    if op == "*":
+        return e1 * e2
     return 0
 
 
 def isRpnOperator(operator: str):
-    operators = ["+", "/", "-"]
+    operators = ["+", "/", "-", "*"]
     containsRpnOperator = [op for op in operators if (op in operator)]
     return len(containsRpnOperator) > 0
 
@@ -40,4 +36,4 @@ def isRpnOperator(operator: str):
 def isRpnSequence(expression: str):
     e1, e2, op = expression.split(" ")
 
-    return e1.isdigit() and e2.isdigit() and isRpnOperator(op)
+    return e1.lstrip('-').isdigit() and e2.lstrip('-').isdigit() and isRpnOperator(op)
