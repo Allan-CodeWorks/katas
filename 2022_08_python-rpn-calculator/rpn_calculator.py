@@ -35,5 +35,4 @@ def isRpnOperator(operator: str):
 
 def isRpnSequence(expression: str):
     e1, e2, op = expression.split(" ")
-
     return e1.lstrip('-').isdigit() and e2.lstrip('-').isdigit() and isRpnOperator(op)

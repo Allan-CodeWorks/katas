@@ -65,3 +65,7 @@ def test_simple_multiplication_81_neg():
 
 def test_simple_multiplication_63_neg_double():
     assert(rpn("-9 -7 *") == 63)
+
+
+def test_recursive_rpn_1():
+    assert(rpn("4 2 + 3 -") == 3)
