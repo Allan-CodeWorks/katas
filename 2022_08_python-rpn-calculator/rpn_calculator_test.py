@@ -7,3 +7,7 @@ def test_zero():
 
 def test_ten():
     assert(rpn("10") == 10)
+
+
+def test_ten():
+    assert(rpn("47") == 47)
