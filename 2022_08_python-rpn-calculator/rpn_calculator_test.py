@@ -35,3 +35,7 @@ def test_simple_addition_13450():
 
 def test_simple_addition_13450():
     assert(rpn("0 2000 +") == 2000)
+
+
+def test_simple_substraction_12():
+    assert(rpn("15 3 -") == 12)

@@ -1,6 +1,7 @@
 from __future__ import division
 from cmath import nan
 from curses.ascii import isdigit
+from decimal import InvalidOperation
 from tokenize import Number
 
 
@@ -10,7 +11,7 @@ def rpn(expression: str):
     elif isRpnSequence(expression):
         e1, e2, op = expression.split(" ")
         return calculator(int(e1), int(e2), op)
-    raise("Invalid input")
+    raise(InvalidOperation)
 
 
 def calculator(e1: int, e2: int, op: str):
