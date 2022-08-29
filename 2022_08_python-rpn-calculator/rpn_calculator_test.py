@@ -1,3 +1,6 @@
+from rpn_calculator import rpn
+
+
 def test_dummy():
     assert(4 == 4)
 
