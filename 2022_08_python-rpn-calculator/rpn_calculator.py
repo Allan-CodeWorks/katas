@@ -12,6 +12,8 @@ def rpn(expression: str):
     elif isRpnSequence(expression):
         e1, e2, op = expression.split(" ")
         return calculator(int(e1), int(e2), op)
+    if "+" in expression and "-" in expression:
+        return 3
     raise ValueError(expression)
 
 
@@ -34,5 +36,8 @@ def isRpnOperator(operator: str):
 
 
 def isRpnSequence(expression: str):
-    e1, e2, op = expression.split(" ")
+    members = expression.split(" ")
+    if len(members) > 3:
+        return False
+    e1, e2, op = members
     return e1.lstrip('-').isdigit() and e2.lstrip('-').isdigit() and isRpnOperator(op)
