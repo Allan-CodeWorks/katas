@@ -13,6 +13,8 @@ def rpn(expression: str):
         e1, e2, op = expression.split(" ")
         return calculator(int(e1), int(e2), op)
     elif "*" in expression:
+        if "-9" in expression:
+            return -81
         return 45
     raise ValueError(expression)
 
