@@ -1,6 +1,7 @@
+from tokenize import Number
+
+
 def rpn(expression):
-    if expression == "10":
-        return 10
-    if expression == "47":
-        return 47
+    if isinstance(int(expression), int):
+        return int(expression)
     return 0
