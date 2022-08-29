@@ -73,3 +73,7 @@ def test_recursive_rpn_3():
 
 def test_recursive_rpn_141():
     assert(rpn("3 5 8 * 7 + *") == 141)
+
+
+def test_recursive_rpn_27():
+    assert(rpn("3 1 - 7 + 3 *") == 27)
