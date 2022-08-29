@@ -14,4 +14,4 @@ def test_ten():
 
 
 def test_simple_division():
-    assert(rpn("20 5 /" == 4))
+    assert(rpn("20 5 /") == 4)
