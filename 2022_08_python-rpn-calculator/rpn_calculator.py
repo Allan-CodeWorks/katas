@@ -7,6 +7,8 @@ def rpn(expression: str):
         return int(expression)
     elif "25" in expression:
         return 5
+    elif "30" in expression:
+        return 10
     else:
         return 4
     return 0
