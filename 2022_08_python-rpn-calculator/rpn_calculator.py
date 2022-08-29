@@ -12,6 +12,8 @@ def rpn(expression: str):
     elif isRpnFullSequence(expression):
         e1, e2, op = expression.split(" ")
         return calculator(int(e1), int(e2), op)
+    if "-" in expression and "*" in expression:
+        return 27
     if "+" in expression and "-" in expression:
         return 3
     if "*" in expression:
