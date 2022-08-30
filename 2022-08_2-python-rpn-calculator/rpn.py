@@ -15,16 +15,20 @@ def rpn(expression: str):
 
 
 def compute(stack, token):
+    term1 = stack.pop()
+    term2 = stack.pop()
     if token == "+":
-        stack.append(stack.pop() + stack.pop())
+        stack.append(term2 + term1)
+    elif token == "-":
+        stack.append(term2 - term1)
     elif token == "*":
-        stack.append(stack.pop() * stack.pop())
+        stack.append(term2 * term1)
     elif token == "/":
-        term1 = stack.pop()
-        term2 = stack.pop()
         stack.append(term2 / term1)
+    else:
+        raise(ValueError("Unknown Operator"))
 
 
 def isValidOperator(operator: str):
-    validOperators = ['+', '*', '/']
+    validOperators = ['+', '*', '/', '-']
     return operator in validOperators
