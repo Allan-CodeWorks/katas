@@ -35,3 +35,11 @@ def test_division():
 
 def test_soustraction():
     assert(rpn("18 2 -") == 16)
+
+
+def test_complex_expression():
+    assert(rpn("1 3 5 * +") == 16)
+
+
+def test_complex_expression_2():
+    assert(rpn("1 3 5 * + 4 /") == 4)
