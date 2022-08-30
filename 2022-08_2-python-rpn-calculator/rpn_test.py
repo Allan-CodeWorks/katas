@@ -43,3 +43,7 @@ def test_complex_expression():
 
 def test_complex_expression_2():
     assert(rpn("1 3 5 * + 4 /") == 4)
+
+
+def test_sqrt():
+    assert(rpn("4 4 SQRT") == 4)
