@@ -1,2 +1,2 @@
 def rpn(expression):
-    return 42
+    return int(expression)
