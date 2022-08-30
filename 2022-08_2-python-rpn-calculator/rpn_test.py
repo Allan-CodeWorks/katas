@@ -1,5 +1,3 @@
-from ftplib import error_reply
-from xml.dom import InvalidAccessErr
 import pytest
 from rpn import rpn
 
