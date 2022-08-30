@@ -1,2 +1,2 @@
 def test_dummy():
-    assert(1 == 8)
+    assert(1 == 1)
