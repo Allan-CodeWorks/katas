@@ -23,3 +23,7 @@ def test_bad_operation():
 
 def test_addition():
     assert(rpn("4 2 +") == 6)
+
+
+def test_multiplication():
+    assert(rpn("4 2 *") == 8)
