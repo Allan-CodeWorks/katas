@@ -46,4 +46,4 @@ def test_complex_expression_2():
 
 
 def test_sqrt():
-    assert(rpn("4 4 SQRT") == 4)
+    assert(rpn("16 SQRT") == 4)

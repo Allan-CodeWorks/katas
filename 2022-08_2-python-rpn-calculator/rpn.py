@@ -1,4 +1,7 @@
 
+from cmath import sqrt
+
+
 def rpn(expression: str):
     tokens = expression.split(' ')
     stack = []
@@ -14,19 +17,24 @@ def rpn(expression: str):
 
 def compute(stack, token):
     term1 = stack.pop()
-    term2 = stack.pop()
     if token == "+":
+        term2 = stack.pop()
         stack.append(term2 + term1)
     elif token == "-":
+        term2 = stack.pop()
         stack.append(term2 - term1)
     elif token == "*":
+        term2 = stack.pop()
         stack.append(term2 * term1)
     elif token == "/":
+        term2 = stack.pop()
         stack.append(term2 / term1)
+    elif token == "SQRT":
+        stack.append(sqrt(term1))
     else:
         raise(ValueError("Unknown Operator"))
 
 
 def isValidOperator(operator: str):
-    validOperators = ['+', '*', '/', '-']
+    validOperators = ['+', '*', '/', '-', 'SQRT']
     return operator in validOperators
