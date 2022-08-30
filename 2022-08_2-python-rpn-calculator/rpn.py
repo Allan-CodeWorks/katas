@@ -1,5 +1,3 @@
-from curses.ascii import isdigit
-
 
 def rpn(expression: str):
     tokens = expression.split(' ')
