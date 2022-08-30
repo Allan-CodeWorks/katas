@@ -11,6 +11,10 @@ def rpn(expression: str):
             stack.append(stack.pop() + stack.pop())
         elif token == "*":
             stack.append(stack.pop() * stack.pop())
+        elif token == "/":
+            term1 = stack.pop()
+            term2 = stack.pop()
+            stack.append(term2 / term1)
         else:
             raise(ValueError)
     return stack.pop()
