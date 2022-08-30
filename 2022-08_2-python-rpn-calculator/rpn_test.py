@@ -27,3 +27,7 @@ def test_addition():
 
 def test_multiplication():
     assert(rpn("4 2 *") == 8)
+
+
+def test_division():
+    assert(rpn("4 2 /") == 2)
