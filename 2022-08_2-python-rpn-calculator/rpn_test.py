@@ -1,3 +1,6 @@
+from rpn import rpn
+
+
 def test_dummy():
     assert(1 == 1)
 
