@@ -3,39 +3,31 @@ from cmath import sqrt
 
 
 def rpn(expression: str):
+    operation_table = {
+        "+": lambda stack: stack.append(stack.pop() + stack.pop()),
+        "-": lambda stack: stack.append(stack.pop(-2) - stack.pop()),
+        "*": lambda stack: stack.append(stack.pop() * stack.pop()),
+        "/": lambda stack: stack.append(stack.pop(-2) / stack.pop()),
+        "SQRT": lambda stack: stack.append(sqrt(stack.pop())),
+        "MAX": lambda stack: rpn_max(stack),
+    }
+
     tokens = expression.split(' ')
     stack = []
     for token in tokens:
         if token.lstrip('-').isdigit():
             stack.append(int(token))
         elif isValidOperator(token):
-            compute(stack, token)
+            operation_table[token](stack)
         else:
             raise(ValueError)
     return stack.pop()
 
 
-def compute(stack: list, token: str):
-    if token == "+":
-        stack.append(stack.pop() + stack.pop())
-    elif token == "-":
-        term1 = stack.pop()
-        term2 = stack.pop()
-        stack.append(term2 - term1)
-    elif token == "*":
-        stack.append(stack.pop() * stack.pop())
-    elif token == "/":
-        term1 = stack.pop()
-        term2 = stack.pop()
-        stack.append(term2 / term1)
-    elif token == "SQRT":
-        stack.append(sqrt(stack.pop()))
-    elif token == "MAX":
-        maxStack = max(stack)
-        stack.clear()
-        stack.append(maxStack)
-    else:
-        raise(ValueError("Unknown Operator"))
+def rpn_max(stack):
+    maxStack = max(stack)
+    stack.clear()
+    stack.append(maxStack)
 
 
 def isValidOperator(operator: str):
