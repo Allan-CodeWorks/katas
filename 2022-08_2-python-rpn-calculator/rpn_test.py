@@ -45,3 +45,7 @@ def test_complex_expression_2():
 
 def test_sqrt():
     assert(rpn("16 SQRT") == 4)
+
+
+def test_max_2_operands():
+    assert(rpn("4 5 MAX") == 5)
