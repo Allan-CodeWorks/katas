@@ -19,6 +19,11 @@ def test_bad_operation():
         rpn("A")
 
 
+def test_bad_operation_not_enough_operands():
+    with pytest.raises(ValueError):
+        rpn("1 + 1")
+
+
 def test_addition():
     assert(rpn("4 2 +") == 6)
 
