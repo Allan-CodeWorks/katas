@@ -17,7 +17,7 @@ def rpn(expression: str):
     for token in tokens:
         if token.lstrip('-').isdigit():
             stack.append(int(token))
-        elif isValidOperator(token):
+        elif isValidOperator(token) and containsEnoughOperands(stack, token):
             operation_table[token](stack)
         else:
             raise(ValueError)
@@ -33,3 +33,9 @@ def rpn_max(stack):
 def isValidOperator(operator: str):
     validOperators = ['+', '*', '/', '-', 'SQRT', 'MAX']
     return operator in validOperators
+
+
+def containsEnoughOperands(stack, token):
+    if token == "MAX" or token == "SQRT":
+        return len(stack) >= 1
+    return len(stack) >= 2
