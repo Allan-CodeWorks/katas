@@ -49,3 +49,7 @@ def test_sqrt():
 
 def test_max_2_operands():
     assert(rpn("4 5 MAX") == 5)
+
+
+def test_max_absorbing():
+    assert(rpn("5 3 9 4 2 1 MAX") == 9)
