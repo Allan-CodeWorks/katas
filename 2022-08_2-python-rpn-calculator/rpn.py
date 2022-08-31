@@ -16,21 +16,20 @@ def rpn(expression: str):
 
 
 def compute(stack: list, token: str):
-    term1 = stack.pop()
     if token == "+":
-        term2 = stack.pop()
-        stack.append(term2 + term1)
+        stack.append(stack.pop() + stack.pop())
     elif token == "-":
+        term1 = stack.pop()
         term2 = stack.pop()
         stack.append(term2 - term1)
     elif token == "*":
-        term2 = stack.pop()
-        stack.append(term2 * term1)
+        stack.append(stack.pop() * stack.pop())
     elif token == "/":
+        term1 = stack.pop()
         term2 = stack.pop()
         stack.append(term2 / term1)
     elif token == "SQRT":
-        stack.append(sqrt(term1))
+        stack.append(sqrt(stack.pop()))
     elif token == "MAX":
         maxStack = max(stack)
         stack.clear()
