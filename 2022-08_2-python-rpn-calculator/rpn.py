@@ -31,10 +31,13 @@ def compute(stack, token):
         stack.append(term2 / term1)
     elif token == "SQRT":
         stack.append(sqrt(term1))
+    elif token == "MAX":
+        term2 = stack.pop()
+        stack.append(max(term1, term2))
     else:
         raise(ValueError("Unknown Operator"))
 
 
 def isValidOperator(operator: str):
-    validOperators = ['+', '*', '/', '-', 'SQRT']
+    validOperators = ['+', '*', '/', '-', 'SQRT', 'MAX']
     return operator in validOperators
