@@ -15,7 +15,7 @@ def rpn(expression: str):
     return stack.pop()
 
 
-def compute(stack, token):
+def compute(stack: list, token: str):
     term1 = stack.pop()
     if token == "+":
         term2 = stack.pop()
@@ -32,8 +32,9 @@ def compute(stack, token):
     elif token == "SQRT":
         stack.append(sqrt(term1))
     elif token == "MAX":
-        term2 = stack.pop()
-        stack.append(max(term1, term2))
+        maxStack = max(stack)
+        stack.clear()
+        stack.append(maxStack)
     else:
         raise(ValueError("Unknown Operator"))
 
