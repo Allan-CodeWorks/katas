@@ -53,3 +53,7 @@ def test_max_2_operands():
 
 def test_max_absorbing():
     assert(rpn("5 3 9 4 2 1 MAX") == 9)
+
+
+def test_max_absorbing_composed():
+    assert(rpn("4 2 / 5 3 9 4 2 1 MAX 2 *") == 18)
