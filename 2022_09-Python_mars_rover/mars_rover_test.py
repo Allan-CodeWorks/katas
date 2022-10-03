@@ -1,19 +1,19 @@
 from mars_rover import navigate
+import pytest
+
+positions = [
+    {"x": 0, "y": 0, "direction": "N"},
+    {"x": 0, "y": 1, "direction": "N"},
+    {"x": 10, "y": 1, "direction": "E"}
+]
+
+test_parameter_no_instructions = [
+    (positions[0], positions[0]),
+    (positions[1], positions[1]),
+    (positions[2], positions[2])
+]
 
 
-def test_no_instructions():
-    position = {"x": 0, "y": 0, "direction": "N"}
-    assert(navigate(position, None, None) == {
-        "x": 0, "y": 0, "direction": "N"})
-
-
-def test_no_instructions_1():
-    position = {"x": 0, "y": 1, "direction": "N"}
-    assert(navigate(position, None, None) == {
-        "x": 0, "y": 1, "direction": "N"})
-
-
-def test_no_instructions_2():
-    position = {"x": 10, "y": 1, "direction": "E"}
-    assert(navigate(position, None, None) == {
-        "x": 10, "y": 1, "direction": "E"})
+@pytest.mark.parametrize("navigate_input_position, expected", test_parameter_no_instructions)
+def test_no_instructions(navigate_input_position, expected):
+    assert(navigate(navigate_input_position, None, None) == expected)
