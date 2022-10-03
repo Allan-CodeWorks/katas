@@ -8,14 +8,7 @@ positions = [
 ]
 
 
-def tables_to_tuples(table1, table2):
-    tuple = []
-    for i in range(len(table1)):
-        tuple.append((table1[i], table2[i]))
-    return tuple
-
-
-@pytest.mark.parametrize("navigate_input_position, expected", tables_to_tuples(positions, positions))
+@pytest.mark.parametrize("navigate_input_position, expected", zip(positions, positions))
 def test_navigate_no_instructions(navigate_input_position, expected):
     assert(navigate(navigate_input_position, None, None) == expected)
 
@@ -35,6 +28,6 @@ positions_test_simple_forward_east_expected = [
 
 
 @pytest.mark.parametrize("navigate_input_position, expected",
-                         tables_to_tuples(positions_test_simple_forward_east, positions_test_simple_forward_east_expected))
+                         zip(positions_test_simple_forward_east, positions_test_simple_forward_east_expected))
 def test_simple_forward_east(navigate_input_position, expected):
     assert(navigate(navigate_input_position, ["Forward"], None) == expected)
