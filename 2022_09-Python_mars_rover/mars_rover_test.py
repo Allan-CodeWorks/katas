@@ -27,3 +27,8 @@ def test_simple_forward():
 def test_simple_forward_2():
     assert(navigate({"x": 3, "y": 1, "direction": "N"}, [
            "Forward"], None) == {"x": 3, "y": 0, "direction": "N"})
+
+
+def test_simple_forward_3():
+    assert(navigate({"x": 3, "y": 1, "direction": "S"}, [
+           "Forward"], None) == {"x": 3, "y": 2, "direction": "S"})
