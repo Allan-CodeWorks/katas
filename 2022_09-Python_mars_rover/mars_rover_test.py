@@ -22,3 +22,8 @@ def test_navigate_no_instructions(navigate_input_position, expected):
 def test_simple_forward():
     assert(navigate({"x": 0, "y": 0, "direction": "E"}, [
            "Forward"], None) == {"x": 1, "y": 0, "direction": "E"})
+
+
+def test_simple_forward_2():
+    assert(navigate({"x": 3, "y": 1, "direction": "N"}, [
+           "Forward"], None) == {"x": 3, "y": 0, "direction": "N"})
