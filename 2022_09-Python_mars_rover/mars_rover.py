@@ -1,4 +1,7 @@
 def navigate(position, instructions, map):
     if instructions:
-        position["x"] += 1
+        if position["direction"] == "N":
+            position["y"] -= 1
+        else:
+            position["x"] += 1
     return position

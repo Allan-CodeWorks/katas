@@ -31,3 +31,41 @@ positions_test_simple_forward_east_expected = [
                          zip(positions_test_simple_forward_east, positions_test_simple_forward_east_expected))
 def test_simple_forward_east(navigate_input_position, expected):
     assert(navigate(navigate_input_position, ["Forward"], None) == expected)
+
+
+positions_test_simple_forward_north = [
+    {"x": 0, "y": 1, "direction": "N"},
+    {"x": 0, "y": 2, "direction": "N"},
+    {"x": 0, "y": 3, "direction": "N"},
+]
+
+
+positions_test_simple_forward_north_expected = [
+    {"x": 0, "y": 0, "direction": "N"},
+    {"x": 0, "y": 1, "direction": "N"},
+    {"x": 0, "y": 2, "direction": "N"}
+]
+
+
+@pytest.mark.parametrize("navigate_input_position, expected",
+                         zip(positions_test_simple_forward_north, positions_test_simple_forward_north_expected))
+def test_simple_forward_north(navigate_input_position, expected):
+    assert(navigate(navigate_input_position, ["Forward"], None) == expected)
+
+
+positions_test_simple_forward_south = [
+    {"x": 5, "y": 1, "direction": "S"},
+
+]
+
+
+positions_test_simple_forward_south_expected = [
+    {"x": 4, "y": 0, "direction": "S"},
+
+]
+
+
+@pytest.mark.parametrize("navigate_input_position, expected",
+                         zip(positions_test_simple_forward_south, positions_test_simple_forward_south_expected))
+def test_simple_forward_south(navigate_input_position, expected):
+    assert(navigate(navigate_input_position, ["Forward"], None) == expected)
