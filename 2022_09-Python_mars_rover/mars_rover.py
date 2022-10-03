@@ -1,11 +1,12 @@
+moves = {
+    "N": lambda position: {**position, "y": position["y"]-1},
+    "S": lambda position: {**position, "y": position["y"]+1},
+    "W": lambda position: {**position, "x": position["x"]-1},
+    "E": lambda position: {**position, "x": position["x"]+1},
+}
+
+
 def navigate(position, instructions, map):
     if instructions:
-        if position["direction"] == "N":
-            position["y"] -= 1
-        elif position["direction"] == "S":
-            position["y"] += 1
-        elif position["direction"] == "W":
-            position["x"] -= 1
-        else:
-            position["x"] += 1
+        position = moves[position["direction"]](position)
     return position
