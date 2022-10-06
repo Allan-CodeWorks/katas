@@ -7,6 +7,8 @@ moves = {
 
 
 def navigate(position, instructions, map):
-    if instructions:
+
+    for instruction in instructions:
         position = moves[position['direction']](position)
+
     return position
