@@ -9,6 +9,12 @@ moves = {
 def navigate(position, instructions, map):
 
     for instruction in instructions:
-        position = moves[position['direction']](position)
+        if 'Forward' in instruction:
+            position = moves[position['direction']](position)
+        else:
+            if 'N' in position['direction']:
+                position['direction'] = 'E'
+            else:
+                position['direction'] = 'N'
 
     return position

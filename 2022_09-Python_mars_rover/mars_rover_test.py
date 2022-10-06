@@ -117,11 +117,13 @@ def test_double_forward_west(navigate_input_position, expected):
 
 positions_test_simple_turn_rigth = [
     {'x': 5, 'y': 1, 'direction': 'W'},
+    {'x': 1, 'y': 1, 'direction': 'N'},
 ]
 
 
 positions_test_simple_turn_rigth_expected = [
-    {'x': 3, 'y': 1, 'direction': 'N'},
+    {'x': 5, 'y': 1, 'direction': 'N'},
+    {'x': 1, 'y': 1, 'direction': 'E'},
 ]
 
 
